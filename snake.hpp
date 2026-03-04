@@ -18,7 +18,7 @@ class Snake
             body.push_back(std::make_pair(15, 30));
             direction = RIGHT; // start moving right (int = 1)
         }
-        void move()
+        void move(int BORDER_HEIGHT, int BORDER_WIDTH)
         {
             std::pair<int, int> head = body.front();
             switch (direction)
@@ -38,6 +38,13 @@ class Snake
             }
             body.insert(body.begin(), head); // insert the new head at the beginning of the body
             body.pop_back(); // remove the tail
+            // check if the snake has hit the border
+            if (head.first <= 0 || head.first >= BORDER_HEIGHT || head.second <= 0 || head.second >= BORDER_WIDTH)
+            {
+                endwin();
+                std::cout << "Game Over" << std::endl;
+                exit(1);
+            }
         }
         void grow()
         {

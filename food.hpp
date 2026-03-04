@@ -19,7 +19,7 @@ class Food
         }
         void respawn(int BORDER_HEIGHT, int BORDER_WIDTH)
         {
-            position = std::make_pair(rand() % BORDER_HEIGHT, rand() % BORDER_WIDTH);
+            position = std::make_pair(rand() % (BORDER_HEIGHT - 2) + 1, rand() % (BORDER_WIDTH - 2) + 1);
         }
         std::pair<int, int> get_position() { return position; }
 };

@@ -48,7 +48,7 @@ void init_game()
     nodelay(stdscr, TRUE);
     draw_border();
     snake.draw();
-    snake.move();
+    snake.move(BORDER_HEIGHT, BORDER_WIDTH);
     refresh();
     getch();
 }
@@ -80,10 +80,10 @@ int main ()
         {
             snake.set_direction(RIGHT);
         }
-        napms(100);
+        napms(150);
         clear();
         draw_border();
-        snake.move();
+        snake.move(BORDER_HEIGHT, BORDER_WIDTH);
         snake.draw();
         if (snake.get_head() == food.get_position())
         {
